@@ -3,13 +3,16 @@ var https = require('https');
 function getAndPrintHTML (options) {
 
   /* Add your code here */
-https.get(options, function (response) {
+https.get(requestOptions, function (response) {
 
   response.setEncoding('utf8');
 
-  // the callback is invoked when a `data` chunk is received
   response.on('data', function (data) {
-    console.log('Chunk Received.', data);
+
+    var Bufferdata = "";
+    Bufferdata += data;
+    console.log(Bufferdata);
+   // console.log('Chunk Received.', data);
   });
 
   // the callback is invoked when all of the data has been received
